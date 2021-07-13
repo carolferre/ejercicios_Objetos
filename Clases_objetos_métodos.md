@@ -9,10 +9,15 @@ Ejemplo de un coche la clase sería el chasis y las ruedas (características com
 
 class Coche():
   largoChasis=250
-  anchoChasis=120
-  ruedas=4
-  enmarcha=False
   
+  anchoChasis=120
+  
+  ruedas=4
+  
+  enmarcha=False
+ 
+ Nuesstra clase Coche tiene 4 propiedades.
+ 
  Comportamiento: un objeto tiene un comportamiento, este viene determinado por métodos.
  Ejemplo, un coche puede tener muchos comportamientos, como arrancar, acelerar, frenar, girar.
  
