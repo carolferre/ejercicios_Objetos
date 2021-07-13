@@ -1,0 +1,54 @@
+
+CONSTRUCTORES: 
+
+Es habitual que las características de los objetos formen parte de un estado inicial, que sean como de fábrica.
+Que por el hecho de crear el objeto tenga un estado inicial y se especifica con un constructor.
+Es un método especial que le da estado inicial a los objetos que pertenecen a una clase.
+El constructor siempre tiene el nombre init que quiere decir estado inicial.
+Cone esto decimos que los objetos miCoche1 y miCoche2 tienen 4 ruedas 250 de largo de chasis y 120 de ancho de chasis como estado inicial en la clase.
+
+
+ENCAPSULACIÓN:
+
+El programa no debería cambiar los datos del constructor, ya que si cambiamos las ruedas a 2 no tendría mucho sentido. miCoche.ruedas=2
+Aquí entra en juego el término encapsulación para evitar que los atributos se modifiquen desde fuera de la clase en el main.
+Hay que encapsular la variable. Para encapsular se pone self.__ruedas=4 (dos guiones bajos).
+
+Sólo se podría modificar la variable dentro de la misma clase pero no en el exterior, en otras clases.
+
+
+
+class Coche():
+  def__init__(self):
+    self.largoChasis=250
+    self.anchoChasis=120
+    self.__ruedas=4
+    self.enmarcha=False
+  
+  def arrancar(self,arrancamos):
+    self.enmarcha=arrancamos
+    
+    if(self.enmarcha):
+      return"El coche está en marcha"
+    else:
+      return "El coche está parado"
+      
+  del estado(self):
+    print("El coche tiene ", self.__ruedas," ruedas. Un ancho de ",self.anchoChasis, " y un largo de ", self.largoChasis)
+    
+    
+miCoche=Coche()
+
+miCoche.arrancar(True)
+
+#Vamos a crear otro objeto:
+
+miCoche2=Coche()
+
+#Este objeto tiene las mismas características que el otro objeto.
+
+Este segundo coche no va a arrancar, pero si le vamos a preguntar el estado.
+print(miCoche2.arrancar(False))
+miCoche2.estado()) 
+#y saldría que está parado
+
