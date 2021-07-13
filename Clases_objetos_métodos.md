@@ -38,9 +38,13 @@ def arrancar(self):
  Con este método dice que el coche está arrancado.
 
 def estado(self):
+
   if(self.enmarcha):
+  
     return "El coche está en marcha"
+    
   else:
+  
     return "El coche está parado"
     
   Es una comprobación que nos dice si el coche está en marcha o parado
@@ -51,6 +55,7 @@ Ejemplo tanto citroen como peugeot son coches que comparten unas característica
 puede que tengan características diferentes definidas dentro del propio objeto.
 
 miCoche=Coche()
+
 nombredelobjeto=nombredelaClase()
 
 Hemos instanciado una clase o creado un objeto llamado miCoche
