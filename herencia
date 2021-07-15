@@ -63,7 +63,9 @@ class MediosTransporte():
  
  #ESTA CLASE NO HEREDA DE MEDIOSTRANSPORTE
  class VElectricos():
-  def__init__(self):
+  def__init__(self,marca,modelo):
+  #super() llama a los init de la clase padre
+    super().__init__(marca,modelo)
     self.autonomia=100
     
   def cargarEnergia(self):
@@ -82,4 +84,4 @@ class MediosTransporte():
  miFurgoneta.estado8)
  print(miFurgoneta.carga(True))
  
- miBici=BicicletaElectrica()
+ miBici=BicicletaElectrica("Orbea,"thj")
