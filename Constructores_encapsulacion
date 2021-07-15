@@ -16,6 +16,10 @@ Hay que encapsular la variable. Para encapsular se pone self.__ruedas=4 (dos gui
 
 Sólo se podría modificar la variable dentro de la misma clase pero no en el exterior, en otras clases.
 
+También se pueden encapsular métodos para que sólo sean visibles en la propia clase. Ya que si no se encapsula un método se puede llamar
+al método en la clase main, de esta forma sólo podría ser accesible dentro de un método de la propia clase. 
+Para encapsular métodos hay que poner un doble guión bajo detrás de def, exactamente igual que cuando se encapsulan atributos. def__chequeo_interno(self)
+Para llamar al método privado dentro de la misma clase a través de un método sería self.__chequeointerno()
 
 
 class Coche():
@@ -25,17 +29,34 @@ class Coche():
     self.__ruedas=4
     self.enmarcha=False
   
+  //EN ESTE MÉTODO USAMOS EL MÉTODO PRIVADO DE CHEQUEO, EL MÉTODO ARRANCAR LLAMA DESDE DENTRO AL MÉTODO CHEQUEO INTERNO
   def arrancar(self,arrancamos):
     self.enmarcha=arrancamos
-    
-    if(self.enmarcha):
+    if(self.__enmarcha):
+      chequeo=self.__chequeo_interno()
+      
+    if(self.enmarcha and chequeo):
       return"El coche está en marcha"
+    elif(self.__enmarcha and chequeo==False):
+      return "Algo ha ido mal en el chequeo, no podemos arrancar"
     else:
       return "El coche está parado"
       
   del estado(self):
     print("El coche tiene ", self.__ruedas," ruedas. Un ancho de ",self.anchoChasis, " y un largo de ", self.largoChasis)
+   
+   //ES UN EJEMPLO DE MÉTODO PRIVADO QUE SÓLO SE PUEDE VER EN LA MISMA CLASE
+  def__chequeo_interno(self):
+    print("realizando chequeo interno")
+    self.gasolina="ok"
+    self.aceite="ok"
+    self.puertas="cerradas"
     
+    if(self.gasolina=="ok" and self.aceite=="ok" and self.puertas=="cerradas"):
+      return True
+    else:
+      return False
+      
     
 miCoche=Coche()
 
