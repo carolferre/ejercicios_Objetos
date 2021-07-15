@@ -1,0 +1,28 @@
+POLIMORFISMO: 
+
+Muchas formas,un objeto puede cambiar de forma dependiendo del contexto en el que se utilice, y si cambia de forma también cambia de comportamiento.
+
+Puede un objeto pasar de ser un coche a una moto.
+
+class Coche():
+  def desplazamiento(self):
+    print("Me desplazo utilizando cuatro ruedas")
+    
+class Moto():
+  def desplazamiento(self):
+    print("Me desplazo utilizando dos ruedas")
+
+class Camion():
+  def desplazamiento(self):
+    print("Me desplazo utilizando seis ruedas")
+
+#Se crea un método de polimorfismo  y al pasar por parámetro el objeto el programa muestra el método al que tiene que llamar en función al objeto
+def desplazamientoVehiculo(vehiculo):
+  vehiculo.desplazamiento()
+
+#Se crea el objeto Camion
+miVehiculo=Camion()
+
+#Se llama al método desplazamientoVehiculo pasando por parámetro el objeto y muestra el método en función del tipo de objeto que es (Camion,Moto,Coche)
+desplazamientoVehiculo(miVehiculo)
+
