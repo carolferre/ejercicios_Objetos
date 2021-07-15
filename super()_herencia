@@ -1,0 +1,44 @@
+
+SUPER():
+
+Con super podemos llamar a los parámetros de la clase padre.
+
+class Persona():
+
+  def __init__(self,nombre,edad,lugar_residencia):
+    self.nombre=nombre
+    self.edad=edad
+    self.lugar_residencia=lugar_residencia
+  
+  def descripcion(self):
+    print("Nombre: ",self.nombre, "Edad: ",self.edad, "Residencia: ",self.lugar_residencia)
+
+class Empleado():
+  def __init__(self,salario,antiguedad,nombre_empleado,edad_empleado,residencia_empleado):
+  #SUPER LLAMA AL CONSTRUCTOR INIT DE PERSONA CON VALORES,TRES DE LOS PARÁMETROS DE EMPLEADOS SERVIRÁN PARA LLAMAR A LA CLASE PADRE PERSONAS
+    super().__init__(nombre_empleado,edad_empleado,residencia_empleado)
+    self.salario=salario
+    self.antiguedad=antiguedad
+    
+  def descripcion(self):
+  #CON SUPER NOS AHORRAMOS TENER QUE DECLARAR TODOS LOS PARÁMETROS DE LA CLASE PADRE
+    super().descripcion()
+    print("Salario: ",self.salario,"Antigüedad: ",self.antiguedad)
+  
+Manuel=Empleado(1500,15,"Manuel",55,"Colombia")
+Antonio.descripcion()
+
+PRINCIPIO DE SUSTITUCIÓN: UN EMPLEADO SIEMPRE ES UNA PERSONA, OSEA UNA SUBCLASE ES SIEMPRE UNA SUPERCLASE; PERO UNA SUPERCLASE NO SIEMPRE NO ES UNA SUBCLASE.
+isinstance(): nos dice si un objeto es instancia de otra
+
+isinstance devuelve True si si y False si no.
+
+#Manuel es un objeto empleado, al ser subclase siempre pertenece a la superclase
+print (isinstance(Manuel,Empleado)) #devuelve True porque Manuel es de la clase empleado
+print (isinstance(Manuel,Persona)) #devuelve True porque Manuel es de la clase persona
+
+#Sin embargo si declaramos Manuel en el objeto como Persona, al aplicar isinstance nos dariía False porque es persona pero no tiene por qué ser empleado,
+# una super clase no es una subclase
+
+
+
