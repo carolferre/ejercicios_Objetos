@@ -37,12 +37,44 @@ class MediosTransporte():
   def estado(self):
     print("Marca; ",self.marca, "\nModelo: ",self.modelo, "\nEn Marcha: ",self.enmarcha, "\nAcelerando: ",self.acelera, "\nFrenando: ",self.frena)
  
- class Moto(Vehiculos):
+ class Furgoneta(MediosTransporte):
+    def carga(self,cargar):
+      self.cargado=cargar
+      if(self.cargado):
+        return "La furgoneta está cargada"
+      else:
+        return "La furgoneta no está cargada"
+    
+ 
+ #PODEMOS CREAR MÉTODOS Y ATRIBUTOS PROPIOS DE LA SUBCLASE MOTO, PARA PODER LLAMARLOS HACE FALTA SOBREESCRIBIR EL MÉTODO ESTADO QUE TIENE EN COMÚN CON LA SUBCLASE
+ #Y LLAMAR EN ESE MÉTODO EL MÉTODO CABALLITO, UTILIZAREMOS SELF PARA LLAMAR AL ATRIBUTO HCABALLITO QUE ES EL ATRIBUTO PROPIO DE LA CLASE MOTO,
+ #EN ESTE CASO HEREDA EL MÉTODO ESTADO DE LA CLASE MEDIOSDETRANSPORTE
+ class Moto(MediosTransporte):
     hcaballito=""
     def caballito(self):
-      hcaballito="Voy haciendo el caballito"
-      
+      self.hcaballito="Voy haciendo el caballito"
+    def estado(self).
+      print ("Marca: ",self.marca, "\nModelo: ",self.modelo, "\nEn Marcha: ",self.enmarcha, "\nAcelerando: ",self.acelera, "\nFrenando: ", self.frena, "\n", self.hcaballito)
+ 
+ #ESTA CLASE NO HEREDA DE MEDIOSTRANSPORTE
+ class VElectricos():
+  def__init__(self):
+    self.autonomia=100
+    
+  def cargarEnergia(self):
+    self.cargando=True
+ 
+ #ESTE ES UN CASO DE HERENCIA MÚLTIPLE, YA QUE HEREDA DE VELECTRICOS Y DE VEHICULOS
+ class BicicletaElectrica(VElectricos,Vehiculos):
+    pass
  
  miMoto=Moto("Honda", "CBR")
  miMoto.caballito()
  miMoto.estado()
+ 
+ miFurgoneta=Furgoneta("Renault","Kangoo")
+ miFurgoneta.arrancar()
+ miFurgoneta.estado8)
+ print(miFurgoneta.carga(True))
+ 
+ miBici=BicicletaElectrica()
