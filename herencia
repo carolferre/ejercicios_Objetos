@@ -17,6 +17,11 @@ también hay que ver qué comportamientos en común tienen todos los objetos (ar
 
 La herencia consiste en coger todos las características y comportamientos en común y reunirlas en una clase, y luego las particularidades de cada uno las creamos en otra clase.
 
+class BicicletaElectrica(VElectricos,Vehiculos):
+
+Cuando hay herencia múltiple se le da prioridad a la clase primera que está a la izq, utilizará el init de VEléctricos ignorando a Vehiculos.
+
+
 class MediosTransporte():
   def__init__(self, marca, modelo):
     self.marca=marca
