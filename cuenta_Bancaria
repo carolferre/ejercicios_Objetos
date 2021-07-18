@@ -1,0 +1,62 @@
+# Crea una clase llamada Cuenta que tendrá los siguientes atributos: titular (que es una persona) y cantidad (puede tener decimales). El titular será obligatorio y la cantidad es opcional. Construye los siguientes métodos para la clase:
+# Un constructor, donde los datos pueden estar vacíos.
+# mostrar(): Muestra los datos de la cuenta.
+# ingresar(cantidad): se ingresa una cantidad a la cuenta, si la cantidad introducida es negativa, no se hará nada.
+# retirar(cantidad): se retira una cantidad a la cuenta. La cuenta puede estar en números rojos.
+
+
+class cuenta():
+
+    def __init__(self,titular,apellido,numero,cantidad):
+        self.titular=titular
+        self.apellido=apellido
+        self.numero=numero
+        self.cantidad=cantidad
+
+    def mostrarDatosCuenta(self):
+        print("Los datos de la cuenta son= ",end="")
+        print("Nombre = ",self.titular)
+        print("Apellido = ",self.apellido)
+        print("Numero de cuenta = ",self.numero)
+        print("Cantidad de dinero en la cuenta = ",self.cantidad)
+
+    def ingresar(self):
+        print("Introduzca la cantidad que desea ingresar...")
+        cantidadIngresar=int(input())
+        self.cantidad= self.cantidad + cantidadIngresar
+        print("Tras la operación tiene = ",self.cantidad," euros en la cuenta")
+
+    def retirar(self):
+        print("Introduzca la cantidad que desea retirar...")
+        cantidadRetirar=int(input())
+        self.cantidad=self.cantidad-cantidadRetirar
+        print("Tras la operación tiene = ",self.cantidad," euros en la cuenta")
+
+
+persona=cuenta("Rodolfo","Fernandez","42543673543456544",3000)
+contador=0
+while contador!=4:
+    print("BIENVENIDO AL BANCO PYTHON")
+    print("Elija una opción")
+    print("1. Ver información de su cuenta")
+    print("2.Ingresar dinero")
+    print("3.Retirar dinero")
+    print("4.Salir del sistema")
+
+    opcion=int(input())
+
+    if opcion==1:
+        persona.mostrarDatosCuenta()
+        contador+1
+    elif opcion==2:
+        persona.ingresar()
+        contador + 1
+    elif opcion==3:
+        persona.retirar()
+        contador + 1
+    elif opcion==4:
+        print("Gracias por su visita señor ",persona.apellido," vuelva a visitarnos cuando quiera")
+        exit()
+    else:
+        print("Opción no válida, inténtalo de nuevo")
+        contador + 1
