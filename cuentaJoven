@@ -1,0 +1,75 @@
+#Crear clase cuentaJoven con constructor:
+# Un constructor.
+# En esta ocasión los titulares de este tipo de cuenta tienen que ser mayor de edad., por lo tanto hay que crear un método esTitularValido() que devuelve verdadero si el titular es mayor de edad  falso en caso contrario.
+# Además la retirada de dinero sólo se podrá hacer si el titular es válido.
+# El método mostrar() debe devolver el mensaje de “Cuenta Joven” y la bonificación de la cuenta.
+
+
+
+class cuentaJoven():
+
+    def __init__(self,nombre,apellidos,edad,cantidad,bonificacion):
+        self.nombre=nombre
+        self.apellidos=apellidos
+        self.edad=edad
+        self.cantidad=cantidad
+        self.bonificacion=bonificacion
+
+    def verificarTitular(self):
+        if self.edad>=18:
+            print("El titular es válido porque es mayor de edad")
+            print("Sus datos son= ")
+            print("Nombre= ",self.nombre)
+            print("Apellido= ",self.apellidos)
+            print("Edad= ",self.edad)
+            print("Cantidad= ",self.cantidad)
+            print("Bonificación de la cuenta= ",self.bonificacion," %")
+        else:
+            print("El titular no es válido porque no es mayor de edad")
+            exit()
+    def ingresar(self):
+        if self.edad>=18:
+            print("Introduce cantidad a ingresar...")
+            cantidadIngresar=int(input())
+            print("Usted va a ingresar ",cantidadIngresar," €")
+            self.cantidad=self.cantidad+cantidadIngresar
+            print("La cantidad de su cuenta tras la operación es= ",self.cantidad)
+        else:
+            print("Usted no puede realizar la operación porque es menor de edad")
+    def retirar(self):
+        if(self.edad>=18):
+            print("Introduce la cantidad a retirar")
+            cantidadRetirar=int(input())
+            print("Usted va a retirar ",cantidadRetirar," €")
+            self.cantidad=self.cantidad-cantidadRetirar
+            print("La cantidad de su cuenta tras la operación es= ",self.cantidad)
+        else:
+            print("Usted no puede realizar la operación porque es menor de edad")
+
+persona=cuentaJoven("Eva","Pérez",18,100,10)
+
+contador=0
+opcion=0
+print("Elija una opción...")
+print("1.Mostrar datos de titular de cuenta")
+print("2.Ingresar dinero")
+print("3.Retirar dinero")
+print("4.Salir del sistema")
+
+
+while(contador<4):
+    opcion = int(input())
+    if opcion==1:
+        persona.verificarTitular()
+        contador+1
+    elif opcion==2:
+        persona.ingresar()
+        contador + 1
+    elif opcion==3:
+        persona.retirar()
+        contador + 1
+    elif opcion==4:
+        print("Hasta otra señor ",persona.apellidos)
+        exit()
+    else:
+        print("El sistema no reconoce lo solicitado, por favor vuelva a intentarlo")
