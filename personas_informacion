@@ -1,0 +1,28 @@
+# Vamos a crear una clase llamada Persona. Sus atributos son: nombre, edad y DNI. Construye los siguientes métodos para la clase:
+
+# Un constructor, donde los datos pueden estar vacíos.
+# Los setters y getters para cada uno de los atributos. Hay que validar las entradas de datos.
+# mostrar(): Muestra los datos de la persona.
+# esMayorDeEdad(): Devuelve un valor lógico indicando si es mayor de edad.
+
+
+class Persona():
+
+    def __init__(self):
+        self.nombre="Antonio"
+        self.dni="5467455h"
+        self.edad=23
+
+    def mostrarDatos(self):
+        print("Nombre= ",self.nombre)
+        print("DNI= ",self.dni)
+        print("Edad= ",self.edad)
+
+    def esMayorDeEdad(self):
+        if self.edad>18:
+            print("Tu edad es ",self.edad," ,eres mayor de edad")
+        else:
+            print("Tu edad es ",self.edad," ,eres menor de edad")
+persona1=Persona()
+persona1.mostrarDatos()
+persona1.esMayorDeEdad()
