@@ -1,0 +1,114 @@
+En programación es muy habitual tener que guardar valores   que se van generando periódicamente y que posteriormente tenemos que recuperarlos, eliminarlos, comprobar si están, etc.
+
+Operaciones habituales sobre un almacén de datos: Poner, Sacar, Buscar, Vaciar, Modificar, Ordenar
+
+El ejercicio trata de definir una clase Almacén que ofrezca los métodos básicos utilizando en su implementación un array unidimensional o vector.
+
+Ejemplos de implementaciones:
+
+1. Tabla con huecos, donde existe un valor que indica que la posición está libre. Las posiciones se van ocupando y liberando según entrar y salen valores.
+
+x		x	x		x	x		x	
+
+2. Tabla dos zonas: zona ocupada y zona libre Con un contador que indica cual es la última posición libre, o el número de elementos almacenados. Podemos añadir siempre al final de la zona ocupada o insertar en orden para mantener siempre la tabla ordenada. Cuando eliminamos un elemento desplazamos para que no haya huecos.
+
+x	x	x	x	x	x				
+      NumElementos = 7
+
+Otros implementaciones:
+
+3. La Tabla gestionada como una Cola. Se mantiene el orden cronológico de entrada y salida de datos: ( FIFO, first input, first output) El primero en entrar es primero en salir.
+
+El primer elemento que se guarda es el primero que se debe eliminar
+
+4. La Tabla gestionada como una Pila. Se mantiene un orden inverso de entrada y salida:  (LIFO, Less input first output)  Último en entrar es el primero en salir.
+
+El último elemento que se guarda es el primero que se debe eliminar.
+
+DESCRIPCIÓN DEL EJERCICIO
+
+Realizar una de los tipos de  clases  Almacen1 y Almacen2
+
+Almacen1: Suponer que trabajamos con una tabla de huecos, donde la posición libre se indica con el valor 0
+
+Almacen2: Suponer que trabajamos con una tabla con dos zonas, donde guardamos en una zona los datos  almacenados y el resto serían posiciones libres.
+
+Codificar la clase Almacén utilizando los siguientes atributos e implementar los métodos definidos en la definición de la clase siguiente. Completar la clase TestAlmacen para probar la clase codificada.
+
+
+
+class almacen():
+    def __init__(self,libre):
+        self.libre=libre
+
+
+    def ponerDatos(self):
+        print("Vamos a introducir datos al almacén   ")
+        Listaalmacen = []
+        contador=0
+        print("Introduce datos para almacenar en nuestro almacén")
+
+
+        if(Listaalmacen==[]):
+            while contador != 10:
+                numero = input()
+                Listaalmacen.append(numero)
+                contador += 1
+            print("Los datos del stock del almacén tras la modificación son: ",end="")
+            print(Listaalmacen)
+        print("Vamos a buscar un dato que introduce el usuario en nuestra bbdd   ")
+        print("Introduce un dato a buscar")
+        numero1=input()
+        if numero1 in Listaalmacen:
+            print("El número ",numero1," está en el stock del almacén")
+        else:
+            print("El número ",numero1," no está en el stock del almacén")
+        print("Vamos a modificar un dato que introduce el usuario y está dentro de nuestra bbdd ")
+        print("Introduce un dato a modificar")
+        numero2=input()
+        print("Introduce un dato nuevo")
+        numero3 = input()
+        if numero2 in Listaalmacen:
+            for i in range(len(Listaalmacen)):
+                if Listaalmacen[i]==numero2:
+                    Listaalmacen[i]=numero3
+        else:
+            print("El número no está dentro de la bbdd")
+        #Otra opción, aunque menos eficiente porque introduce la modificación al final de la lista
+        #no en la posición exacta
+        #if numero2 in Listaalmacen:
+           # Listaalmacen.remove(numero2)
+            #print("Introduce el dato nuevo")
+            #numero3=input()
+           # Listaalmacen.append(numero3)
+        print("El resultado del stock de almacén tras la modificación es = ",end="")
+        print(Listaalmacen)
+        print("Vamos a sacar un dato introducido por el usuario del stock del almacén")
+        print("Introduce un dato")
+        numero4=input()
+        if numero4 in Listaalmacen:
+            for i in range(len(Listaalmacen)):
+                if Listaalmacen[i]==numero4:
+                    Listaalmacen[i]="0"
+
+        else:
+            print("El número no está dentro de la bbdd")
+        print("El resultado del stock de almacén tras la modificación es = ", end="")
+        print(Listaalmacen)
+
+        print("Vamos a ordenar la bbdd de nuestro almacén de menor a mayor")
+        Listaalmacen2=[int(x) for x in Listaalmacen]
+        print(Listaalmacen2)
+        Listaalmacen2.sort()
+        print("El resultado del stock de almacén tras la modificación es = ", end="")
+        print(Listaalmacen2)
+
+        print("Vamos a eliminar nuestros datos de almacén y ponerlos a 0")
+        for i in range(len(Listaalmacen2)):
+            Listaalmacen2[i]=0
+        print("El resultado del stock de almacén tras la modificación es = ", end="")
+        print(Listaalmacen2)
+        print("El almacén está vacío")
+almacen1=almacen(0)
+almacen1.ponerDatos()
+
