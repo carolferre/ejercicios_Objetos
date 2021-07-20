@@ -1,0 +1,29 @@
+
+MÉTODOS __EQ__ Y __NE__:
+
+El método __eq__ lo que hace es devolver true si los objetos son iguales y false si no. Se usa en la condición if con isistance.
+
+El método __ne__ lo que hace es devolver true si los objetos no son iguales y false si sí.
+
+
+class televisor():
+    def __init__(self,modelo):
+        self.modelo=modelo
+
+        #__eq__ DEVUELVE TRUE SI LOS OBJETOS SON IGUALES
+
+    def __eq__(self, other):
+        if isinstance(other,televisor):
+            return self.modelo==other.modelo
+
+        # __ne__ DEVUELVE TRUE SI LOS OBJETOS NO SON IGUALES
+    def __ne__(self, other):
+            return not self.__eq__(other)
+
+tv1=televisor("Samsung")
+tv2=televisor("Samsung")
+tv3=televisor("Samsung")
+
+print("El modelo de televisión 1 es igual o no a la televisión 2 [true si sí y false si no] ",tv1.__eq__(tv2))
+print("El modelo de televisión 1 es igual o no a la televisión 3 [true si sí y false si no] ",tv1.__eq__(tv3))
+print("El modelo de television 2 no es igual a la televisión 3 [true si no y false si sí ] ",tv2.__ne__(tv3))
